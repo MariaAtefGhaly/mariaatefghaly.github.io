@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="qsBMxhQa_uiowFExoyEjcQ13YSa7lQwYkMnvHvKpung" />
+    <title>Maria Atef Ghaly - Junior Software Engineer Portfolio</title>
+
+    <link rel="icon" type="image/png"
+        href="https://media.licdn.com/dms/image/v2/D4D03AQFu4sEIRwhojA/profile-displayphoto-crop_800_800/B4DZw5UaorJ8AI-/0/1770488180925?e=1772064000&v=beta&t=LcQ3H6l1ulkaVG2zpwieECiEpB0LT0TC_kxJuqvhKF8">
+
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.85);
+            /* White glassmorphism */
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 1);
+            /* Slate-200 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20b857;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Rotating Rings Animation */
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+
+        @keyframes reverse-spin {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .animate-reverse-spin {
+            animation: reverse-spin 15s linear infinite;
+        }
+    </style>
+</head>
+<!-- Theme Change: Light Mode (bg-slate-50 text-slate-800) -->
+
+<body class="bg-slate-50 text-slate-800 selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-mono text-lg md:text-xl font-bold text-blue-600 tracking-tight cursor-pointer hover:text-blue-700 transition-colors"
+                    onclick="scrollToSection('hero')">
+                    Maria Atef Ghaly
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 lg:space-x-8">
+                        <!-- Dark text for light mode -->
+                        <a href="#about"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">About</a>
+                        <a href="#experience"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">Experience</a>
+                        <a href="#education"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">Education</a>
+                        <a href="#skills"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">Skills</a>
+                        <a href="#projects"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">Projects</a>
+                        <a href="#testimonials"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">Testimonials</a>
+                        <a href="#contact"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 p-2 focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">About</a>
+                <a href="#experience"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">Experience</a>
+                <a href="#education"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">Education</a>
+                <a href="#skills"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">Skills</a>
+                <a href="#projects"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">Projects</a>
+                <a href="#testimonials"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">Testimonials</a>
+                <a href="#contact"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+                    onclick="closeMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0 opacity-40"
+            style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+
+            <div class="relative w-52 h-52 mx-auto mb-10 animate-fade-in-up group">
+                <div
+                    class="absolute inset-0 bg-blue-400 rounded-full blur-[50px] opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                </div>
+                <div class="absolute inset-0 border-2 border-dashed border-blue-200 rounded-full animate-spin-slow">
+                </div>
+                <div
+                    class="absolute inset-3 border-2 border-dotted border-purple-200 rounded-full animate-reverse-spin">
+                </div>
+                <!-- Light card background for image -->
+                <div class="absolute inset-6 rounded-full bg-white p-[4px] shadow-xl border border-slate-100">
+                    <div class="h-full w-full bg-slate-50 rounded-full overflow-hidden relative">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFu4sEIRwhojA/profile-displayphoto-crop_800_800/B4DZw5UaorJ8AI-/0/1770488180925?e=1772064000&v=beta&t=LcQ3H6l1ulkaVG2zpwieECiEpB0LT0TC_kxJuqvhKF8"
+                            alt="Profile Picture"
+                            class="w-full h-full rounded-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+                <div class="absolute bottom-4 right-4 bg-white border border-blue-100 p-2 rounded-full shadow-lg z-10 animate-bounce"
+                    style="animation-duration: 3s;">
+                    <i data-lucide="code" class="w-5 h-5 text-blue-600"></i>
+                </div>
+            </div>
+
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-mono mb-6 animate-fade-in-up shadow-sm"
+                style="animation-delay: 0.1s;">
+                <i data-lucide="terminal" class="w-4 h-4 mr-2"></i>
+                <span>Junior Software Engineer</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight animate-fade-in-up"
+                style="animation-delay: 0.2s;">
+                Building Strong Foundations. <span
+                    class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Creating
+                    Future Solutions.</span>
+            </h1>
+
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
+                style="animation-delay: 0.3s;">
+                Computer Science student passionate about turning complex problems into clean, efficient code. Eager to
+                learn, build, and grow as a software engineer.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up"
+                style="animation-delay: 0.4s;">
+                <a href="#projects"
+                    class="px-8 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] flex items-center justify-center cursor-pointer relative z-20">
+                    <i data-lucide="layers" class="w-5 h-5 mr-2"></i> View Projects
+                </a>
+                <a href="#contact"
+                    class="px-8 py-3.5 rounded-lg border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-slate-700 font-semibold transition-all flex items-center justify-center cursor-pointer relative z-20">
+                    Contact Me
+                </a>
+            </div>
+
+            <div class="mt-20 flex justify-center animate-fade-in-up" style="animation-delay: 0.5s;">
+                <div class="animate-bounce cursor-pointer group relative z-20" onclick="scrollToSection('about')">
+                    <div
+                        class="p-3 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm text-slate-400 group-hover:text-blue-600 group-hover:border-blue-200 transition-all shadow-md">
+                        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 flex items-center">
+                        <span class="text-blue-600 mr-3">01.</span> About Me
+                    </h2>
+                    <div class="text-lg text-slate-600 leading-relaxed space-y-4">
+                        <p>
+                            I am a Junior Software Engineer and Computer Science student with a strong drive to learn
+                            and innovate. My journey is fueled by a curiosity for how things work and a desire to build
+                            software that makes a difference.
+                        </p>
+                        <p class="font-medium text-slate-800">Currently focused on:</p>
+                        <ul class="space-y-3 ml-2">
+                            <li class="flex items-center"><span class="text-blue-600 mr-3">▹</span> Data Structures &
+                                Algorithms</li>
+                            <li class="flex items-center"><span class="text-blue-600 mr-3">▹</span> Full-Stack Web
+                                Development</li>
+                            <li class="flex items-center"><span class="text-blue-600 mr-3">▹</span> Problem Solving
+                                using C++ / Python</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl transform rotate-3 opacity-20 blur-xl">
+                    </div>
+                    <div class="relative bg-white p-8 md:p-10 rounded-2xl border border-slate-200 shadow-xl">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-8 border-b border-slate-100 pb-4">Core Strengths
+                        </h3>
+                        <div class="space-y-8">
+                            <!-- Strength 1 -->
+                            <div class="flex items-start group">
+                                <div
+                                    class="p-3.5 bg-blue-50 rounded-xl text-blue-600 mr-5 group-hover:text-white group-hover:bg-blue-600 transition-all duration-300">
+                                    <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-slate-900 font-bold text-lg mb-1">Algorithmic Mindset</h4>
+                                    <p class="text-slate-500 text-sm leading-relaxed">Strong foundation in
+                                        problem-solving and optimizing code efficiency through competitive programming.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Strength 2 -->
+                            <div class="flex items-start group">
+                                <div
+                                    class="p-3.5 bg-purple-50 rounded-xl text-purple-600 mr-5 group-hover:text-white group-hover:bg-purple-600 transition-all duration-300">
+                                    <i data-lucide="zap" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-slate-900 font-bold text-lg mb-1">Quick Learner</h4>
+                                    <p class="text-slate-500 text-sm leading-relaxed">Passionate about exploring new
+                                        technologies and adapting to modern development tools rapidly.</p>
+                                </div>
+                            </div>
+                            <!-- Strength 3 -->
+                            <div class="flex items-start group">
+                                <div
+                                    class="p-3.5 bg-green-50 rounded-xl text-green-600 mr-5 group-hover:text-white group-hover:bg-green-600 transition-all duration-300">
+                                    <i data-lucide="users" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-slate-900 font-bold text-lg mb-1">Collaborative</h4>
+                                    <p class="text-slate-500 text-sm leading-relaxed">Experienced in working within
+                                        agile teams and participating in hackathons to deliver projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 flex items-center">
+                <span class="text-blue-600 mr-3">02.</span> Experience & Activities
+            </h2>
+            <div class="space-y-12 border-l-2 border-slate-200 ml-3 md:ml-6 pl-8 md:pl-12 relative">
+                <!-- Item 1 -->
+                <div class="relative group">
+                    <span
+                        class="absolute -left-[41px] md:-left-[57px] top-1 bg-white w-5 h-5 rounded-full border-4 border-blue-600 shadow-md"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                            Software Engineering Intern</h3>
+                        <span
+                            class="text-sm font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full mt-2 sm:mt-0 w-fit border border-slate-200">Summer
+                            2023</span>
+                    </div>
+                    <h4 class="text-blue-600 font-mono text-lg mb-4">Tech Startups Inc.</h4>
+                    <ul class="space-y-2 text-slate-600 list-disc ml-4 text-sm md:text-base">
+                        <li>Collaborated with the development team to build responsive web interfaces using React.</li>
+                        <li>Participated in code reviews and learned best practices for version control with Git.</li>
+                        <li>Assisted in debugging and fixing frontend issues.</li>
+                    </ul>
+                </div>
+                <!-- Item 2 -->
+                <div class="relative group">
+                    <span
+                        class="absolute -left-[41px] md:-left-[57px] top-1 bg-white w-5 h-5 rounded-full border-4 border-slate-300 group-hover:border-blue-500 transition-colors"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                            Frontend Developer (Freelance)</h3>
+                        <span
+                            class="text-sm font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full mt-2 sm:mt-0 w-fit border border-slate-200">2022
+                            - Present</span>
+                    </div>
+                    <h4 class="text-blue-600 font-mono text-lg mb-4">Freelance / Upwork</h4>
+                    <ul class="space-y-2 text-slate-600 list-disc ml-4 text-sm md:text-base">
+                        <li>Designed and developed landing pages for local businesses using HTML, CSS, and Tailwind.
+                        </li>
+                        <li>Ensured cross-browser compatibility and mobile responsiveness.</li>
+                        <li>Delivered projects on time and maintained communication with clients.</li>
+                    </ul>
+                </div>
+                <!-- Item 3 -->
+                <div class="relative group">
+                    <span
+                        class="absolute -left-[41px] md:-left-[57px] top-1 bg-white w-5 h-5 rounded-full border-4 border-slate-300 group-hover:border-blue-500 transition-colors"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                            Competitive Programmer</h3>
+                        <span
+                            class="text-sm font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full mt-2 sm:mt-0 w-fit border border-slate-200">2021
+                            - Present</span>
+                    </div>
+                    <h4 class="text-blue-600 font-mono text-lg mb-4">University ACM Student Chapter</h4>
+                    <ul class="space-y-2 text-slate-600 list-disc ml-4 text-sm md:text-base">
+                        <li>Actively solving algorithmic problems on platforms like LeetCode and Codeforces.</li>
+                        <li>Participated in local hackathons and coding competitions.</li>
+                        <li>Improving understanding of data structures and algorithm optimization.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 flex items-center">
+                <span class="text-blue-600 mr-3">03.</span> Education
+            </h2>
+            <div class="flex justify-center">
+                <div
+                    class="bg-white p-8 md:p-10 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all hover:shadow-xl group relative overflow-hidden w-full md:w-3/4 lg:w-2/3">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i data-lucide="graduation-cap" class="w-32 h-32 text-blue-600"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-mono mb-4 border border-blue-100">2024
+                            - 2028 (Expected)</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Bachelor of Computer Science</h3>
+                        <h4 class="text-lg text-slate-600 mb-6">Cairo University</h4>
+                        <p class="text-slate-500 text-base leading-relaxed mb-6">
+                            Currently pursuing a degree with a focus on Software Engineering and Information Systems.
+                            Active member of the student tech community.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span
+                                class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">GPA:
+                                3.8</span>
+                            <span
+                                class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">Software
+                                Engineering</span>
+                            <span
+                                class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">OS
+                                & Networks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 flex items-center">
+                <span class="text-blue-600 mr-3">04.</span> Technical Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Group 1 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4 flex items-center">
+                        Core Languages</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Chips styles update -->
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Python</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Java</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">C++</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">JavaScript</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">SQL</span>
+                    </div>
+                </div>
+                <!-- Group 2 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4 flex items-center">
+                        Web Development</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">HTML5
+                            & CSS3</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">React.js</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Tailwind
+                            CSS</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Node.js</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">REST
+                            APIs</span>
+                    </div>
+                </div>
+                <!-- Group 3 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4 flex items-center">
+                        Databases & Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">MySQL</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">PostgreSQL</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Git
+                            & GitHub</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">VS
+                            Code</span>
+                    </div>
+                </div>
+                <!-- Group 4 -->
+                <div
+                    class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all hover:shadow-lg">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4 flex items-center">
+                        CS Concepts</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Data
+                            Structures</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Algorithms</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">OOP</span>
+                        <span
+                            class="px-4 py-2 bg-white text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-blue-400 hover:text-blue-600 transition-colors cursor-default shadow-sm">Software
+                            Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 flex items-center">
+                <span class="text-blue-600 mr-3">05.</span> Featured Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-400 transition-all hover:shadow-xl flex flex-col h-full hover:-translate-y-2 duration-300">
+                    <div class="h-48 w-full overflow-hidden relative border-b border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80"
+                            alt="E-Commerce"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-4">
+                            E-Commerce Website</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-1">
+                            A fully responsive e-commerce platform built with React and Tailwind CSS, featuring product
+                            listing, cart management, and checkout simulation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">React</span>
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">Redux</span>
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">Tailwind</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-100">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4 mr-2"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div
+                    class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-400 transition-all hover:shadow-xl flex flex-col h-full hover:-translate-y-2 duration-300">
+                    <div class="h-48 w-full overflow-hidden relative border-b border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1540350394557-8d14678e7f91?auto=format&fit=crop&w=800&q=80"
+                            alt="Task App"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-4">
+                            Task Management App</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-1">
+                            A productivity application to manage daily tasks. Implements CRUD operations and stores data
+                            in local storage (or simple backend).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">JS</span>
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">CSS</span>
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">HTML</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-100">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4 mr-2"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div
+                    class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-400 transition-all hover:shadow-xl flex flex-col h-full hover:-translate-y-2 duration-300">
+                    <div class="h-48 w-full overflow-hidden relative border-b border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                            alt="Automation"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-4">
+                            Python Automation</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-1">
+                            A collection of python scripts to automate file organization, web scraping simple data, and
+                            generating reports.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">Python</span>
+                            <span
+                                class="text-xs font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-200">Automation</span>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-100">
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4 mr-2"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium border-b border-transparent hover:border-blue-600 transition-all pb-1">
+                    View more on GitHub <i data-lucide="github" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 flex items-center justify-center">
+                <span class="text-blue-600 mr-3">06.</span> Testimonials
+            </h2>
+            <div class="relative bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl">
+                <div
+                    class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-full border border-slate-200 text-blue-500 shadow-md">
+                    <i data-lucide="quote" class="w-8 h-8 fill-current"></i>
+                </div>
+                <div id="testimonial-container" class="mt-6 min-h-[220px] flex items-center justify-center">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide w-full animate-fade-in-up">
+                        <p class="text-slate-800 text-lg md:text-2xl leading-relaxed mb-10 italic font-light">
+                            "Maria consistently demonstrates exceptional problem-solving skills. Her ability to grasp
+                            complex algorithms and apply them efficiently is impressive."
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <div
+                                class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold border border-blue-200 text-lg">
+                                DR</div>
+                            <div class="ml-4 text-left">
+                                <h4 class="text-slate-900 font-bold text-lg">Dr. Ahmed Samir</h4>
+                                <p class="text-slate-500 text-sm uppercase tracking-wider">Professor of CS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide w-full hidden animate-fade-in-up">
+                        <p class="text-slate-800 text-lg md:text-2xl leading-relaxed mb-10 italic font-light">
+                            "We worked together on a freelance web project, and Maria delivered high-quality frontend
+                            code. She is responsive and detail-oriented."
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <div
+                                class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold border border-blue-200 text-lg">
+                                SK</div>
+                            <div class="ml-4 text-left">
+                                <h4 class="text-slate-900 font-bold text-lg">Sarah Karim</h4>
+                                <p class="text-slate-500 text-sm uppercase tracking-wider">Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide w-full hidden animate-fade-in-up">
+                        <p class="text-slate-800 text-lg md:text-2xl leading-relaxed mb-10 italic font-light">
+                            "Maria was a key contributor to our hackathon team. Her positive attitude and React skills
+                            helped us build a prototype in record time."
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <div
+                                class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold border border-blue-200 text-lg">
+                                OM</div>
+                            <div class="ml-4 text-left">
+                                <h4 class="text-slate-900 font-bold text-lg">Omar Mostafa</h4>
+                                <p class="text-slate-500 text-sm uppercase tracking-wider">Teammate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="prevTestimonial()"
+                    class="absolute top-1/2 -left-4 md:-left-16 transform -translate-y-1/2 p-3 rounded-full bg-white text-slate-400 border border-slate-200 hover:text-blue-600 hover:border-blue-500 transition-all focus:outline-none shadow-lg hover:scale-110"><i
+                        data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                <button onclick="nextTestimonial()"
+                    class="absolute top-1/2 -right-4 md:-right-16 transform -translate-y-1/2 p-3 rounded-full bg-white text-slate-400 border border-slate-200 hover:text-blue-600 hover:border-blue-500 transition-all focus:outline-none shadow-lg hover:scale-110"><i
+                        data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                <div class="flex justify-center space-x-3 mt-10">
+                    <span
+                        class="testimonial-dot h-2.5 w-8 bg-blue-600 rounded-full cursor-pointer transition-all duration-300"
+                        onclick="showTestimonial(0)"></span>
+                    <span
+                        class="testimonial-dot h-2.5 w-2.5 bg-slate-300 rounded-full cursor-pointer transition-all duration-300 hover:bg-slate-400"
+                        onclick="showTestimonial(1)"></span>
+                    <span
+                        class="testimonial-dot h-2.5 w-2.5 bg-slate-300 rounded-full cursor-pointer transition-all duration-300 hover:bg-slate-400"
+                        onclick="showTestimonial(2)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/50 via-slate-50 to-slate-50">
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-blue-600 font-mono mb-6">07. What's Next?</h2>
+            <h3 class="text-4xl md:text-6xl font-bold text-slate-900 mb-8">Get In Touch</h3>
+            <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+                Whether you have a question, a project proposal, or just want to say hi, my inbox is always open. I'll
+                do my best to get back to you!
+            </p>
+
+            <div class="flex justify-center gap-8 mb-16">
+                <!-- Gmail -->
+                <a href="mailto:email@example.com"
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/1234567890"
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-green-500 hover:border-green-200 hover:bg-green-50 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                </a>
+
+                <!-- Github -->
+                <a href="#"
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-black hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                    <i data-lucide="github" class="w-8 h-8"></i>
+                </a>
+
+                <!-- Linkedin -->
+                <a href="#"
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                    <i data-lucide="linkedin" class="w-8 h-8"></i>
+                </a>
+            </div>
+
+            <a href="mailto:email@example.com"
+                class="px-10 py-4 rounded-xl border border-blue-600 text-blue-600 font-mono hover:bg-blue-50 transition-all duration-300 inline-block text-lg shadow-sm hover:shadow-md">Say
+                Hello</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-50 text-center text-slate-500 text-sm font-mono border-t border-slate-200">
+        <p>Built with HTML, Tailwind & Vanilla JS by Maria Atef Ghaly</p>
+    </footer>
+
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+    </a>
+
+    <!-- ========================================= -->
+    <!--               JAVASCRIPT                  -->
+    <!-- ========================================= -->
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('nav-scrolled'); navbar.classList.remove('bg-transparent'); }
+            else { navbar.classList.remove('nav-scrolled'); navbar.classList.add('bg-transparent'); }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) { mobileMenu.classList.remove('hidden'); menuIcon.setAttribute('data-lucide', 'x'); }
+            else { mobileMenu.classList.add('hidden'); menuIcon.setAttribute('data-lucide', 'menu'); }
+            lucide.createIcons();
+        });
+
+        function closeMenu() {
+            isMenuOpen = false; mobileMenu.classList.add('hidden');
+            menuIcon.setAttribute('data-lucide', 'menu'); lucide.createIcons();
+        }
+
+        // Smooth Scrolling
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- Testimonial Slider Logic ---
+        let currentTestimonialIndex = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.testimonial-dot');
+
+        function showTestimonial(index) {
+            if (index >= slides.length) currentTestimonialIndex = 0;
+            else if (index < 0) currentTestimonialIndex = slides.length - 1;
+            else currentTestimonialIndex = index;
+
+            slides.forEach(slide => { slide.classList.add('hidden'); slide.classList.remove('block'); });
+            dots.forEach(dot => { dot.classList.remove('bg-blue-600', 'w-8'); dot.classList.add('bg-slate-300', 'w-2.5'); });
+
+            slides[currentTestimonialIndex].classList.remove('hidden');
+            slides[currentTestimonialIndex].classList.add('block');
+            dots[currentTestimonialIndex].classList.remove('bg-slate-300', 'w-2.5');
+            dots[currentTestimonialIndex].classList.add('bg-blue-600', 'w-8');
+        }
+
+        function nextTestimonial() { showTestimonial(currentTestimonialIndex + 1); }
+        function prevTestimonial() { showTestimonial(currentTestimonialIndex - 1); }
+    </script>
+</body>
+
+</html>
