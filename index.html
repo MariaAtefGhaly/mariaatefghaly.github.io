@@ -757,7 +757,8 @@
             <div class="flex justify-center gap-8 mb-16">
                 <!-- Gmail -->
                 <a href="mailto:mariaatef08@gmail.com"
-                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-300 hover:-translate-y-1 shadow-sm" target="_blank">
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-300 hover:-translate-y-1 shadow-sm"
+                    target="_blank">
                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
                         stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -778,13 +779,15 @@
 
                 <!-- Github -->
                 <a href="https://github.com/MariaAtefGhaly"
-                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-black hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1 shadow-sm" target="_blank">
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-black hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1 shadow-sm"
+                    target="_blank">
                     <i data-lucide="github" class="w-8 h-8"></i>
                 </a>
 
                 <!-- Linkedin -->
                 <a href="https://www.linkedin.com/in/maria-atef-ghaly-019624282/"
-                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition-all duration-300 hover:-translate-y-1 shadow-sm" target="_blank">
+                    class="group p-4 bg-white rounded-2xl text-slate-500 border border-slate-200 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition-all duration-300 hover:-translate-y-1 shadow-sm"
+                    target="_blank">
                     <i data-lucide="linkedin" class="w-8 h-8"></i>
                 </a>
             </div>
@@ -813,8 +816,11 @@
     <!-- ========================================= -->
     <script>
         // Force scroll to top on reload
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
+        function resetScroll() {
+            const contentArea = document.getElementById('content-area');
+            if (contentArea) {
+                contentArea.scrollTop = 0;
+            }
         }
 
         // Lucide Icons Initialization
